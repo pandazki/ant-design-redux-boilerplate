@@ -35,6 +35,9 @@ class App extends React.Component {
       value: 0
     };
   }
+  componentWillMount() {
+    this.props.dispatch(counter.query());
+  }
   addOne() {
     this.props.dispatch(counter.change(1));
   }

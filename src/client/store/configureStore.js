@@ -1,7 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers/';
 
-const middlewares = [];
+import { apiMiddleware } from 'redux-api-middleware';
+
+const middlewares = [
+  apiMiddleware
+];
 
 export default function configureStore(initialState = {}) {
   const store = createStore(rootReducer, initialState, compose(

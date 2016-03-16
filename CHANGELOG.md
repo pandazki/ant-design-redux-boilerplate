@@ -1,3 +1,14 @@
+# 0.2.2
+`2016-03-16`
+
+- 添加 api 访问
+  - redux-api-middleware 中间件
+  - 查询
+- 其他
+  - 使用 [mocky][f12fc17e] 作为 mock api
+
+  [f12fc17e]: http://www.mocky.io/ "mocky"
+
 # 0.2.1
 `2016-03-16`
 

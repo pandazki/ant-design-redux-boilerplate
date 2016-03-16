@@ -10,6 +10,11 @@ const counter = (state = Immutable.Map({ value: 0 }), action) => {
       return state.merge({
         value: state.get('value') + action.value
       });
+
+    case counterAction.COUNTER_QUERY_SUCCESS:
+      return state.merge({
+        value: action.payload.value
+      });
     default:
       return state;
   }
