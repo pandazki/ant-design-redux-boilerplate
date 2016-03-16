@@ -13,6 +13,9 @@ module.exports = {
     filename: 'js/[name].[hash].js'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __PRODUCTION__: true
+    }),
     new ExtractTextPlugin('css/[name].[hash].css'),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

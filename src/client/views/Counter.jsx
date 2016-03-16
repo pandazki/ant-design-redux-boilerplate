@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
+import { connect } from 'react-redux';
+import { counter } from '../actions/';
 
 const contentStyle = {
   position: 'absolute',
@@ -34,19 +36,15 @@ class App extends React.Component {
     };
   }
   addOne() {
-    this.setState({
-      value: this.state.value + 1
-    });
+    this.props.dispatch(counter.change(1));
   }
   reduceOne() {
-    this.setState({
-      value: this.state.value - 1
-    });
+    this.props.dispatch(counter.change(-1));
   }
   render() {
     return (
       <div style={contentStyle}>
-        <p style={numberStyle}>{this.state.value}</p>
+        <p style={numberStyle}>{this.props.counter.get('value')}</p>
         <div style={buttonBoxStyle}>
           <Button style={buttonStyle} type="primary" onClick={this.addOne.bind(this)}>+</Button>
           <Button style={buttonStyle} type="primary" onClick={this.reduceOne.bind(this)}>-</Button>
@@ -56,4 +54,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(state => state.counter)(App);

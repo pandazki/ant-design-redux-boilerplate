@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx src",
     "dev": "NODE_ENV=development node src/server/server.js",
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack --progress --color",
     "serve": "npm run build && NODE_ENV=production node src/server/server.js"
   },
   "author": "Pandazki",
@@ -35,10 +35,13 @@
   },
   "dependencies": {
     "antd": "^0.12.8",
+    "immutable": "^3.7.6",
     "koa": "^1.2.0",
     "koa-static": "^2.0.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1"
   },
   "pre-commit": [
     "lint"

@@ -27,9 +27,12 @@ if (isDeveloping) {
   config.output.chunkFilename = 'js/[name].js';
   config.output.filename = 'js/[name].js';
 
-  // 3.不单独提取样式文件
-  config.plugins = config.plugins.slice(2);
+  // 3.移除__PRODUCTION__=true，移除单独提取样式文件，移除压缩代码
+  config.plugins = config.plugins.slice(3);
   config.module.loaders[0].loaders = ['style', 'css', 'less'];
+
+  // 4.添加 source-map
+  config.devtool = ['source-map'];
 
   let compiler = webpack(config);
   let server = new WebpackDevServer(compiler, {

@@ -1,3 +1,19 @@
+# 0.2.1
+`2016-03-16`
+
+- 添加数据层
+  - Redux
+    - actions
+    - reducers
+    - store
+  - react-redux
+  - immutable
+- Demo页面
+  - Counter (数据由 state -> store)
+- 其他
+  - 启用 Chrome 的 redux-devtools-extension 插件
+  - webpack.config.js 新增标识环境的 \__PRODUCTION__
+
 # 0.2.0
 `2016-03-12`
 
