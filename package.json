@@ -1,6 +1,6 @@
 {
   "name": "ant-design-redux",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "a react boilerplate project base on Ant Design[https://github.com/ant-design/ant-design] and Redux[https://github.com/reactjs/redux]",
   "scripts": {
     "lint": "eslint --ext .js,.jsx src",
