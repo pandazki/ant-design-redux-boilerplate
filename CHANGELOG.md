@@ -1,3 +1,11 @@
+# 0.2.0
+`2016-03-12`
+
+- Demo页面
+  - Counter
+- 项目结构重构
+  - 将页面代码移入 client 文件夹
+
 # 0.1.0
 `2016-03-09`
 
@@ -13,3 +21,5 @@
   - webpack-dev-server/webpack + koa
   - React
   - ant-design
+- Demo页面
+  - FormDemo
