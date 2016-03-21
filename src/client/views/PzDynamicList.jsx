@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import {
   Button,
   Row,
@@ -19,7 +19,7 @@ class PzDynamicList extends React.Component {
       c = event;
     }
     const v = this.state.values;
-    v[index].content = c;
+    v[index] = c;
     this.props.onChange(v); // 作为 form 的组件，必须调用该方法将变化的值告诉 form
     this.setState({
       values: [].concat(v)
@@ -36,9 +36,7 @@ class PzDynamicList extends React.Component {
   click() {
     const v = this.state.values;
     this.setState({
-      values: v.concat([{
-        content: {}
-      }])
+      values: v.concat([{}])
     });
   }
 
@@ -49,8 +47,10 @@ class PzDynamicList extends React.Component {
           <Col span="22">
             {
               React.cloneElement(this.props.item, {
+                form: this.props.form,
+                index,
                 onChange: this.change.bind(this, index),
-                value: item.content
+                value: item
               })
             }
           </Col>
