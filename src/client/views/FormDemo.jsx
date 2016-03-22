@@ -42,19 +42,15 @@ class App extends React.Component {
     const { getFieldProps } = this.props.form;
     // console.log(this.props.form.getFieldsValue()); // 查看结果
     return (
-      <Form horizontal>
-        <FormItem label="列表数据">
-          <Row>
-            <PzDynamicList {...getFieldProps('list', {
-              rules: [{
-                validator: this.checkData.bind(this),
-              }]
-            })} item={<PzDynamicItemExample />} form={this.props.form} />
-          </Row>
-        </FormItem>
-        <FormItem>
-           <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
-        </FormItem>
+      <Form horizontal form={this.props.form}>
+        <Row>
+          <PzDynamicList {...getFieldProps('list', {
+            rules: [{
+              validator: this.checkData.bind(this),
+            }]
+          })} item={<PzDynamicItemExample />} />
+        </Row>
+        <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
       </Form>
     );
   }

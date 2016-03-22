@@ -5,7 +5,6 @@ import {
   Col,
   Form
 } from 'antd';
-const createForm = Form.create;
 const FormItem = Form.Item;
 
 // 可以在 DynamicList 中使用的组件示例
@@ -16,32 +15,13 @@ class PzDynamicItemExample extends React.Component {
     // 更变时候必须回调 onChange 发送完整的新数据
     const r = this.props.value;
     r[key] = event.target.value;
-    // this.props.form.validateFieldsAndScroll((errors, values) => {
-    //   if (!!errors) {
-    //     console.log('Errors in form!!!');
-    //     console.log(errors);
-    //     return true;
-    //   }
-    //   console.log('Submit!!!');
-    //   console.log(values);
+
     this.props.onChange(r);
-    // });
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   this.props.form.validateFieldsAndScroll((errors, values) => {
-  //     if (!!errors) {
-  //       console.log('Errors in form!!!');
-  //       console.log(errors);
-  //       return true;
-  //     }
-  //     console.log('Submit!!!');
-  //     console.log(values);
-  //   });
-  // }
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldProps } = this.context.form;
 
     const addressProp = getFieldProps(`value2_${this.props.index}`, {
       rules: [{ required: true, min: 5, message: '地址至少为 5 个字符' }]
@@ -60,25 +40,24 @@ class PzDynamicItemExample extends React.Component {
       this.change.bind(this, 'value1')(event);
     };
     return (
-      <Form form={this.props.form} >
-        <Row>
-          <Col span="8">
-            <FormItem label="国籍" hasFeedback >
-              <Input type="text" {...nationalityProp} value={this.props.value.value1} placeholder="国籍" />
-            </FormItem>
-          </Col>
-        </Row>
-        <Row>
-          <Col span="16">
-            <FormItem label="地址：" hasFeedback >
-              <Input type="text" {...addressProp} value={this.props.value.value2} placeholder="地址" />
-            </FormItem>
-          </Col>
-        </Row>
-      </Form>
+      <Row>
+        <Col span="8">
+          <FormItem hasFeedback >
+            <Input type="text" {...nationalityProp} value={this.props.value.value1} placeholder="国籍" />
+          </FormItem>
+        </Col>
+        <Col span="16">
+          <FormItem hasFeedback >
+            <Input type="text" {...addressProp} value={this.props.value.value2} placeholder="地址" />
+          </FormItem>
+        </Col>
+      </Row>
     );
   }
 }
-// PzDynamicItemExample = createForm()(PzDynamicItemExample);
+
+PzDynamicItemExample.contextTypes = {
+  form: React.PropTypes.object,
+};
 
 export default PzDynamicItemExample;

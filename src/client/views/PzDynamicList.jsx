@@ -47,7 +47,6 @@ class PzDynamicList extends React.Component {
           <Col span="22">
             {
               React.cloneElement(this.props.item, {
-                form: this.props.form,
                 index,
                 onChange: this.change.bind(this, index),
                 value: item
